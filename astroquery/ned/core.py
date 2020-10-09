@@ -27,7 +27,7 @@ class NedClass(BaseQuery):
     """
     # make configurable
     BASE_URL = conf.server
-    OBJ_SEARCH_URL = BASE_URL + 'nph-objsearch'
+    OBJ_SEARCH_URL = BASE_URL + 'ObjectLookup'
     ALL_SKY_URL = BASE_URL + 'nph-allsky'
     DATA_SEARCH_URL = BASE_URL + 'nph-datasearch'
     IMG_DATA_URL = BASE_URL + 'imgdata'
@@ -93,7 +93,7 @@ class NedClass(BaseQuery):
         request_payload = self._request_payload_init()
         self._set_input_options(request_payload)
         self._set_output_options(request_payload)
-        request_payload['objname'] = object_name
+        request_payload['name'] = object_name
         if get_query_payload:
             return request_payload
         response = self._request("GET", url=Ned.OBJ_SEARCH_URL,
